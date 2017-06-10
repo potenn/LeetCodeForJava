@@ -8,8 +8,6 @@ class Point{
 		this.x = x;
 		this.y = y;
 	}
-
-
 }
 
 public class Solution {
@@ -53,7 +51,7 @@ public class Solution {
             for(int y = 0 ; y < yLength ; y++){
 
             	/*
-            		grid[x][y]가 1이어야하고, 방문하지않았을 때, 큐에 넣고 작업시작.
+			grid[x][y]가 1이어야하고, 방문하지않았을 때, 큐에 넣고 작업시작.
             	*/
             	if(grid[x][y] == '1' && visited[x][y] == 0){
 
@@ -78,23 +76,20 @@ public class Solution {
             				// 3. 방문을 한 애인지아닌지 판단해야하고. 방문을 안해야 가지치기에 들어가지.
 
             				if(isCorrectRange(xLength, yLength, new Point(moveX,moveY)) && grid[moveX][moveY] == '1' && visited[moveX][moveY] == 0){
-
             					queue.offer(new Point(moveX,moveY));
             					visited[moveX][moveY] = 1;
-
             				}
-            			}
+					
+            			} // end of directions
 
-            		}
+            		} // end of Queue isEmpty
             		//탐색이 끝났지? 뭘해야할까 땅덩어리 증가시켜야지
             		idOfIslands++;
-
-            	}
-
-            }
-        }
-		return idOfIslands;
+            	} // end of if grid[x][y] == '1' && visited[x][y] == 0
+            } // end of for statement y
+        }// end of for statement x
+		
+	return idOfIslands;
 
 	}
-
 }
